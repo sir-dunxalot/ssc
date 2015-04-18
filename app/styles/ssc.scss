@@ -23,51 +23,43 @@ h1 {
   font-family: $didot;
 }
 
-// .heights_hero {
-//   @extend %full_height;
+.heights {
+  background-color: #000;
+  background-image: url('images/heights.jpg');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
-//   background-color: #000;
-//   background-image: url('images/heights.jpg');
-//   background-position: center center;
-//   background-size: contain;
-//   background-repeat: no-repeat;
-// }
-
-// .cityscape_hero {
-//   @extend %full_height;
-
-//   background-color: #000;
-//   background-image: url('images/cityscape.jpg'), -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,0,0,1));
-//   background-position: top center;
-//   background-size: cover, 100% 100%;
-//   background-repeat: no-repeat;
-// }
+.cityscape {
+  background-color: #000;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)), url('images/cityscape.jpg');
+  background-position: top center;
+  background-size: cover, 100% 100%;
+  background-repeat: no-repeat;
+}
 
 .cinema,
-.red,
-.blue {
+.heights,
+.cityscape {
   height: 100vh;
   width: 100vw;
-}
-
-.red {
-  background: red;
-}
-
-.blue {
-  background: blue;
-}
-
-.cinema,
-.red,
-.blue {
   position: relative;
   top: -100vh;
 }
 
-.debug {
+.hero {
+  height: 100vh;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
   color: #fff;
+  z-index: 2;
+
+  h1 {
+    position: relative;
+    text-align: center;
+    top: 40%;
+  }
 }

@@ -1,8 +1,12 @@
-{{!-- <h1>From <em class="em">the</em> Heights<span class="to_new_height"> to new heights<span></h1> --}}
+<div class="hero">
+  <h1 class="title">
+    From <em class="em">the</em> Heights<span class="to_new_height"> to new heights<span>
+  </h1>
+</div>
 
 <div class="cinema" {{bind-attr style='view.slideInStyle'}}>
-  <div class="red"></div>
-  <div {{bind-attr class=':blue view.isPastCinema:hidden'}}></div>
+  <div class="cityscape"></div>
+  <div {{bind-attr class=':heights view.isPastCinema:hidden'}}></div>
 </div>
 
 <div class="debug">
@@ -11,6 +15,8 @@
   <p>{{view.isPastCinema}}</p>
 
 </div>
+
+<h1 style="color:white;">About the SSC</h1>
 
 <br>.
 <br>.
