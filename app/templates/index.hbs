@@ -4,16 +4,9 @@
   </h1>
 </div>
 
-<div class="cinema" {{bind-attr style='view.slideInStyle'}}>
-  <div class="cityscape"></div>
-  <div {{bind-attr class=':heights view.isPastCinema:hidden'}}></div>
-</div>
-
-<div class="debug">
-  <p>scrollTop: {{view.scrollTop}}</p>
-  <p>{{view.slideInStyle}}</p>
-  <p>{{view.isPastCinema}}</p>
-
+<div class="cinema">
+  <div class="cityscape" {{bind-attr style='view.cityscapeStyle'}}></div>
+  <div {{bind-attr class=':heights view.isPastCinema:hidden' style='view.heightsStyle'}}></div>
 </div>
 
 <h1 style="color:white;">About the SSC</h1>
