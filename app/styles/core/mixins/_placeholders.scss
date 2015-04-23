@@ -1,0 +1,30 @@
+/* Transitions
+
+We specify transition properties as mixins because compass' @include transition will override placeholders
+*/
+
+@mixin ease_out {
+  @include transition-timing-function(cubic-bezier(0.230, 1.000, 0.320, 1.000)); // Ease out quint
+}
+
+/* Mixins for placeholders */
+
+@mixin table() {
+  display: table;
+  border-collapse: collapse;
+  @extend %full_width;
+  max-width: 100%;
+}
+
+@mixin cell() {
+  display: table-cell;
+  @extend %align-middle;
+}
+
+@mixin row() {
+  display: table-row;
+}
+
+@mixin temporarily_hidden() {
+  display: none;
+}

@@ -1,0 +1,22 @@
+@import "mixins/colors";
+@import "mixins/css3";
+@import "mixins/layout";
+@import "mixins/placeholders";
+@import "mixins/utils";
+
+/*
+https://github.com/Igosuki/compass-mixins/issues/34
+Hack until compass-mixins is synced up with new libsass
+*/
+
+@function compact($vars...) {
+  $list: ();
+
+  @each $var in $vars {
+    @if $var {
+        $list: append($list, $var, comma);
+    }
+  }
+
+  @return $list;
+}

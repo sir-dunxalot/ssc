@@ -1,0 +1,9 @@
+/*
+Target class modifiers. Can use & inside the mixin to target modifier nested in another class
+*/
+
+@mixin mod($class_begins_with) {
+  *[class*="#{$class_begins_with}-"] {
+    @content;
+  }
+}

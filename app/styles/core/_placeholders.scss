@@ -1,0 +1,152 @@
+%full_height {
+  height: 100%;
+}
+
+%full_width {
+  width: 100%;
+}
+
+%full_height-viewport {
+  height: 100vh;
+}
+
+%full_width-viewport {
+  width: 100vw;
+}
+
+%nowrap {
+  white-space: nowrap;
+}
+
+%border_box {
+  @include box-sizing(border-box);
+}
+
+%relative {
+  position: relative;
+}
+
+%absolute {
+  position: absolute;
+}
+
+%fixed {
+  position: fixed;
+}
+
+%static {
+  position: static;
+}
+
+/* Use mixins for display placeholders so we can easily
+overwrite them in media queries */
+
+%temporarily_hidden {
+  @include temporarily_hidden;
+}
+
+%table {
+  @include table;
+}
+
+%row {
+  @include row;
+}
+
+%cell {
+  @include cell;
+}
+
+%inline_block {
+  @include inline-block;
+}
+
+%align-middle {
+  vertical-align: middle;
+}
+
+%align-top {
+  vertical-align: top;
+}
+
+%block {
+  display: block;
+}
+
+%no_content {
+  content: '';
+}
+
+%full_size_pseudo {
+  @extend %no_content;
+  @extend %absolute;
+  @extend %full_height;
+  @extend %full_width;
+  @extend %top;
+  @extend %left;
+}
+
+%align-left {
+  text-align: left;
+}
+
+%align-center {
+  text-align: center;
+}
+
+%align-right {
+  text-align: right;
+}
+
+%terrace {
+  font-size: 0;
+
+  & > * {
+    @include rem(font-size, $bodyFontSize);
+  }
+}
+
+%not_allowed {
+  cursor: not-allowed;
+}
+
+%use_hardware_acceleration {
+  @include transform(translateZ(0)); // Hardware acceleration
+  @include backface-visibility;
+}
+
+%top {
+  top: 0;
+}
+
+%right {
+  right: 0;
+}
+
+%bottom {
+  bottom: 0;
+}
+
+%left {
+  left: 0;
+}
+
+%no_margin {
+  margin: 0;
+}
+
+%no_padding {
+  padding: 0;
+}
+
+%no_border {
+  border: none;
+}
+
+%no_outline {
+  outline: none;
+}
+
+%pointer {
+  cursor: pointer;
+}

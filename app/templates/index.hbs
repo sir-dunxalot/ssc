@@ -1,0 +1,26 @@
+<div class="fullscreen-heights_text" {{bind-attr style='view.fullscreenStyle'}}>
+  <h1 class="title">
+    <span class="from_the_heights" {{bind-attr style='view.fromHeightsStyle'}}>
+      From <em class="em">the</em> Heights<span class="ellipsis" {{bind-attr style='view.ellipsisStyle'}}>...</span>
+    </span>
+
+    <span class="to_new_heights" {{bind-attr style='view.toHeightsStyle'}}>
+      &nbsp;to new heights
+    </span>
+  </h1>
+</div>
+
+<div class="cinema">
+  <div class="cityscape" {{bind-attr style='view.cityscapeStyle'}} id="cityscape">
+  </div>
+
+  <div {{bind-attr class=':heights view.isPastCinema:hidden' style='view.heightsStyle'}}>
+  </div>
+
+  <div class="clouds">
+  </div>
+</div>
+
+<div class="post_cinema_content">
+  <h1 style="color:white;">About the SSC</h1>
+</div>

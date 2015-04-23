@@ -1,0 +1,25 @@
+html {
+  font-size: $baseFontSize * 0.8;
+
+  @include small {
+    font-size: $baseFontSize * 0.9;
+  }
+
+  @include medium {
+    font-size: $baseFontSize;
+  }
+}
+
+body {
+  @include rem(font-size, $bodyFontSize);
+  font-family: $sourceSansPro;
+  font-weight: $sourceSansReg;
+
+  /* Crome & Safari */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+
+  /* Firefox on Mac */
+  -moz-osx-font-smoothing: grayscale;
+}
