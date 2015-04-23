@@ -1,65 +1,75 @@
 import Ember from 'ember';
 
-var scrolled = false;
+const { escapeExpression } = Ember.Handlebars.Utils;
+const { SafeString } = Ember.Handlebars;
+
+let scrolled = false;
 
 export default Ember.View.extend({
   classNames: ['index_view'],
-  positionPercentage: 0,
+  unescapedPositionPercentage: 0,
   isPastCinema: false,
   offset: 0,
   windowHeight: 0,
 
   cityscapeStyle: function() {
-    var easeOutQuint = Ember.$.easing.easeOutQuint;
-    var offset = this.get('offset');
-    var positionPercentage = this.get('positionPercentage');
-    var opacity = 'opacity:' + positionPercentage + ';';
+    const easeOutQuint = Ember.$.easing.easeOutQuint;
+    const offset = escapeExpression(this.get('offset'));
+    const percentage = this.get('percentage');
+    const opacity = `opacity:${percentage};`;
 
-    var t = offset;
-    var b = 0;
-    var c = offset * 2;
-    var d = this.get('windowHeight');
+    const t = offset;
+    const b = 0;
+    const c = offset * 2;
+    const d = this.get('windowHeight');
 
-    var top = 'top:' + easeOutQuint(1, t, b, c, d) + 'px;';
+    const top = 'top:' + easeOutQuint(1, t, b, c, d) + 'px;';
 
-    return top + opacity;
-  }.property('offset', 'positionPercentage'),
+    return new SafeString(top + opacity);
+  }.property('offset', 'percentage'),
 
   heightsStyle: function() {
-    var positionPercentage = this.get('positionPercentage');
-    var opacity = 'opacity:' + (1 - positionPercentage) + ';';
-    var offset = this.get('offset');
-    var top = 'top:' + offset / 1.5 + 'px;';
+    const inversePercentage = this.get('percentage');
+    const opacity = `opacity:${inversePercentage};`;
+    const offset = escapeExpression(this.get('offset')) / 1.5;
+    const top = `top:${offset}px;`;
 
-    return top + opacity;
-  }.property('positionPercentage', 'offset'),
+    return new SafeString(top + opacity);
+  }.property('percentage', 'offset'),
+
+  percentage: function() {
+    var unescapedPositionPercentage = this.get('unescapedPositionPercentage');
+
+    return parseFloat(escapeExpression(unescapedPositionPercentage));
+  }.property('unescapedPositionPercentage'),
 
   toHeightsStyle: function() {
-    return 'opacity:' + this.get('positionPercentage') + ';';
-  }.property('positionPercentage'),
+    const percentage = this.get('percentage');
+
+    return new SafeString(`opacity:${percentage};`);
+  }.property('percentage'),
 
   ellipsisStyle: function() {
-    var inversePercentage = 1 - this.get('positionPercentage');
-    var opacity = 'opacity:' + inversePercentage + ';';
-    var widthPixels = inversePercentage * 50;
-    var width = 'width:' + widthPixels + 'px;';
+    const inversePercentage = 1 - this.get('percentage');
+    const opacity = `opacity:${inversePercentage};`;
+    const widthPixels = inversePercentage * 50;
+    const width = `width:${widthPixels}px;`;
 
-    return opacity + width;
-  }.property('positionPercentage'),
+    return new SafeString(opacity + width);
+  }.property('percentage'),
 
   fromHeightsStyle: function() {
-    var positionPercentage = this.get('positionPercentage');
+    const inversePercentage = 1 - this.get('percentage');
+    const position = 120 * (1 - inversePercentage);
 
-    return 'left:-' + 120 * (1 - positionPercentage) + 'px;';
-  }.property('positionPercentage'),
+    return new SafeString(`left:-${position}px;`);
+  }.property('percentage'),
 
   fullscreenStyle: function() {
-    var top, windowHeight;
+    if (this.get('isPastCinema')) {
+      const windowHeight = escapeExpression(this.get('windowHeight'));
 
-    if (this.get('isPastCinema')){
-      windowHeight = this.get('windowHeight');
-
-      return 'top:' + windowHeight + 'px;position:absolute;';
+      return new SafeString(`top:${windowHeight}px;position:absolute;`);
     } else {
       return null;
     }
@@ -68,7 +78,7 @@ export default Ember.View.extend({
   /* Methods */
 
   createCinema: function() {
-    var windoh = $(window);
+    const windoh = $(window);
 
     windoh.on('scroll', Ember.run.bind(this, this.scroll));
     windoh.on('resize', Ember.run.bind(this, this.setWindowheight));
@@ -79,12 +89,13 @@ export default Ember.View.extend({
   }.on('didInsertElement'),
 
   scroll: function() {
-    var duration = 1500;
-    var offset = window.pageYOffset;
-    var windowHeight = this.get('windowHeight');
+    const duration = 1500;
+    const offset = window.pageYOffset;
+    const windowHeight = this.get('windowHeight');
 
     if (offset > windowHeight) {
       this.set('isPastCinema', true);
+
       return;
     }
 
@@ -101,7 +112,7 @@ export default Ember.View.extend({
     }
 
     this.setProperties({
-      positionPercentage: offset / windowHeight,
+      unescapedPositionPercentage: offset / windowHeight,
       isPastCinema: false,
       offset: offset
     });
@@ -110,7 +121,7 @@ export default Ember.View.extend({
   /* Scroll handling */
 
   disableScroll: function() {
-    var wheel = Ember.run.bind(this, this.wheel);
+    const wheel = Ember.run.bind(this, this.wheel);
 
     if (window.addEventListener) {
       window.addEventListener('DOMMouseScroll', wheel, false);
@@ -147,7 +158,7 @@ export default Ember.View.extend({
   },
 
   keydown: function(e) {
-    for (var i = keys.length; i--;) {
+    for (let i = keys.length; i--;) {
       if (e.keyCode === keys[i]) {
         this.preventDefault(e);
 

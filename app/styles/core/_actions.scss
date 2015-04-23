@@ -1,60 +1,14 @@
-.fade {
-  @include transition(opacity 0.5s);
-  @extend %use_hardware_acceleration;
-}
-
-@include mod(fade) {
-  @extend .fade;
-}
-
-.fade-out {
-  @include transparent;
-}
-
-.fade-in {
-  @include opaque;
-}
+/**
+Allow user to easily see when they tab through the page
+*/
 
 ::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+  background: mix($pageBackground, $blue, 90%);
+  color: $body;
 }
 
 ::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+  background: mix($pageBackground, $blue, 90%);
+  color: $body;
 }
 
-.removed {
-  display: none !important;
-  visibility: hidden;
-}
-
-.hidden {
-  @extend %no_border;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  @extend %no_padding;
-  @extend %absolute;
-  width: 1px;
-}
-
-.hidden.focusable:active,
-.hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  @extend %no_margin;
-  overflow: visible;
-  @extend %static;
-  width: auto;
-}
-
-[aria-hidden="true"] {
-  pointer-events: none;
-}
-
-[aria-hidden="false"] {
-  pointer-events: auto;
-}

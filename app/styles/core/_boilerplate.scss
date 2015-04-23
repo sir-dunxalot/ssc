@@ -1,0 +1,45 @@
+html {
+  background-color: $pageBackground;
+}
+
+html, body {
+  @extend .full_width;
+  @extend .full_height;
+  overflow: hidden;
+}
+
+.hr {
+  @include rem(margin, $spacing, -1 * $spacing);
+  @include rem(padding, 0, $spacing);
+}
+
+.or {
+  @include rem(margin, 0, $spacing / 2);
+  @extend .sub;
+}
+
+.info_available {
+  cursor: help;
+}
+
+iframe {
+  border: 0;
+  @extend .full_height;
+  @extend .full_width;
+}
+
+.sub {
+  @include opacity(0.5);
+}
+
+.invisible {
+  @include transparent;
+}
+
+.opaque {
+  @include opaque;
+}
+
+.bold {
+  font-weight: bold;
+}

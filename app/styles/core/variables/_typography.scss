@@ -1,0 +1,27 @@
+/* We use REM throughout all fonts and element sizing
+
+The below values result in 1rem = 10px when browser has
+default font-size of 16px (i.e. 10/16 * 100 = 62.5%).
+This makes the maths easier for choosing size values in
+your head. */
+
+$baseFontSize: 62.5%;
+$bodyFontSize: 1.6;
+
+$headingFontSize: 3;
+
+$iconFontSize: 2.2;
+
+$lato: "Lato", Arial, sans-serif;
+$didot: 'Didot', serif;
+
+$latoThin: 300;
+$latoReg: 400;
+
+$contrasted-light-default: $lightGray;
+$contrasted-dark-default: $darkBlue;
+
+/* Negative margin on icons because they are bigger than
+text font size */
+
+$iconFontOffset: -0.5 * ($iconFontSize / $bodyFontSize);

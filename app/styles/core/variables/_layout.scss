@@ -1,0 +1,33 @@
+$headerHeight: 10;
+$spacing: 3;
+
+$inputRegWidth: 35;
+$inputVertPadding: 1;
+$inputHorizPadding: 1.6;
+
+$buttonVertPadding: 1.5;
+$buttonHorizPadding: 2;
+
+$tablePadding: 1.2;
+
+$alertSpacing: $spacing * 0.8;
+
+$maxQuestionWidth: 64;
+
+$choiceBoxSpacing: 3.6;
+
+/**
+@TODO - Redo grid when upgraded to SUSY 2
+*/
+
+$gutter-width: 1.8em;
+$grid-padding: 0;
+$total-columns: 6;
+$media-layout: 63.75em 12;
+
+/* Media queries */
+
+$small: 37.5em; // 600px
+$medium: 50em; // 800px
+$large: 63.75em; // 1020px
+$extraLarge: 81.25em; // 1200px

@@ -2,8 +2,9 @@
 
 @import "core/variables";
 @import "core/mixins";
-@import "core/placeholders";
 @import "core/actions";
+@import "core/boilerplate";
+@import "core/placeholders";
 
 html, body, .application_view, .index_view {
   margin: 0;

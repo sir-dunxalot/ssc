@@ -1,68 +1,11 @@
-/* Typography */
+@import "variables/colors";
+@import "variables/layout";
+@import "variables/spinner";
+@import "variables/typography";
 
-/* We use REM throughout all fonts and element sizing
+$arrowSize: 0.8;
+$checkboxSize: 2.6;
+$notificationSize: 3;
 
-The below values result in 1rem = 10px when browser has
-default font-size of 16px (i.e. 10/16 * 100 = 62.5%).
-This makes the maths easier for choosing size values in
-your head.
-*/
-
-$baseFontSize: 62.5%;
-$bodyFontSize: 1.6;
-$lato: 'Lato', Arial, sans-serif;
-$didot: 'Didot', serif;
-// $sourceSansPro: 'Source Sans Pro', 'Lato', Arial, sans-serif;
-$sourceSansReg: 400;
-$sourceSansLight: 300;
-
-$headingFontSize: 3;
-$iconFontSize: 2.4;
-$iconFontOffset: -0.25 * ($iconFontSize / $bodyFontSize);
-
-/* Colors */
-
-$black: #000;
-$offwhite: #ebebeb;
-$white: #fff;
-
-$error: #ea5550;
-$success: #86b867;
-$warning: #f7c854;
-$info: #5D99D0;
-
-$lavender: #566fab; // Non-invasive highlight color
-
-$gray-light: mix(#868686, $white);
-$gray-dark: #707070;
-$gray-dark-hover: mix(#707070, $black, 70%);
-
-$inputBackgroundColor: mix($white, $offwhite, 80%);
-
-$twitter: #55acee;
-$facebook: #3b5999;
-
-/* Layout */
-
-$spacing: 2;
-$buttonVertPadding: 1.5;
-$buttonHorizPadding: 2;
-$iconMargin: $buttonVertPadding;
-
-$inputWidth: 30;
-$inputVertPadding: 0.8;
-$inputHorizPadding: 1.2;
-
-$alertWidth: 50;
-
-/* MQs in EMs so the scale with page zoom */
-
-$small: 37.5em; // 600px
-$medium: 50em; // 800px
-$large: 63.75em; // 1020px
-$extraLarge: 81.25em; // 1200px
-
-/* Transitions */
-
-$fast: 0.3s;
 $slow: 0.5s;
+$fast: 0.3s;

@@ -1,0 +1,10 @@
+$spinnerColors:
+  rgba($red, 0.75)
+  rgba($yellow, 0.75)
+  rgba($green, 0.75)
+  rgba($blue, 0.75);
+$spinnerSize: 2.5em;
+$spinnerThickness: 0.5em;
+
+$spinnerLat: ($spinnerSize - $spinnerThickness) / 2;
+$spinnerOffset: $spinnerLat - $spinnerThickness;

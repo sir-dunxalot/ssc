@@ -131,6 +131,16 @@ overwrite them in media queries */
   left: 0;
 }
 
+%pad {
+  @include rem(padding, $spacing);
+  @extend %border_box;
+}
+
+%space {
+  @include rem(margin-top, $spacing);
+  @include rem(margin-bottom, $spacing);
+}
+
 %no_margin {
   margin: 0;
 }
@@ -149,4 +159,12 @@ overwrite them in media queries */
 
 %pointer {
   cursor: pointer;
+}
+
+%overflow-hidden {
+  overflow: hidden;
+}
+
+%overflow-scroll {
+  overflow: scroll;
 }
