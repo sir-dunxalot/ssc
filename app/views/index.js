@@ -3,6 +3,10 @@ import Ember from 'ember';
 const { escapeExpression } = Ember.Handlebars.Utils;
 const { SafeString } = Ember.Handlebars;
 
+const escapeAsNumber = function(property) {
+  return parseFloat(escapeExpression(property));
+};
+
 let scrolled = false;
 
 export default Ember.View.extend({
@@ -14,16 +18,16 @@ export default Ember.View.extend({
 
   cityscapeStyle: function() {
     const easeOutQuint = Ember.$.easing.easeOutQuint;
-    const offset = escapeExpression(this.get('offset'));
+    const offset = escapeAsNumber(this.get('offset'));
     const percentage = this.get('percentage');
     const opacity = `opacity:${percentage};`;
 
     const t = offset;
     const b = 0;
     const c = offset * 2;
-    const d = this.get('windowHeight');
+    const d = escapeAsNumber(this.get('windowHeight'));
 
-    const top = 'top:' + easeOutQuint(1, t, b, c, d) + 'px;';
+    const top = 'top:' + easeOutQuint({}, t, b, c, d) + 'px;';
 
     return new SafeString(top + opacity);
   }.property('offset', 'percentage'),
@@ -31,7 +35,7 @@ export default Ember.View.extend({
   heightsStyle: function() {
     const inversePercentage = this.get('percentage');
     const opacity = `opacity:${inversePercentage};`;
-    const offset = escapeExpression(this.get('offset')) / 1.5;
+    const offset = escapeAsNumber(this.get('offset')) / 1.5;
     const top = `top:${offset}px;`;
 
     return new SafeString(top + opacity);
@@ -40,7 +44,7 @@ export default Ember.View.extend({
   percentage: function() {
     var unescapedPositionPercentage = this.get('unescapedPositionPercentage');
 
-    return parseFloat(escapeExpression(unescapedPositionPercentage));
+    return escapeAsNumber(unescapedPositionPercentage);
   }.property('unescapedPositionPercentage'),
 
   toHeightsStyle: function() {
@@ -67,7 +71,7 @@ export default Ember.View.extend({
 
   fullscreenStyle: function() {
     if (this.get('isPastCinema')) {
-      const windowHeight = escapeExpression(this.get('windowHeight'));
+      const windowHeight = escapeAsNumber(this.get('windowHeight'));
 
       return new SafeString(`top:${windowHeight}px;position:absolute;`);
     } else {
@@ -81,10 +85,10 @@ export default Ember.View.extend({
     const windoh = $(window);
 
     windoh.on('scroll', Ember.run.bind(this, this.scroll));
-    windoh.on('resize', Ember.run.bind(this, this.setWindowheight));
+    windoh.on('resize', Ember.run.bind(this, this.setWindowHeight));
   }.on('didInsertElement'),
 
-  setWindowheight: function() {
+  setWindowHeight: function() {
     this.set('windowHeight', window.innerHeight);
   }.on('didInsertElement'),
 

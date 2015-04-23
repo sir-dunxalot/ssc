@@ -1,20 +1,27 @@
-<div class="fullscreen-heights_text" {{bind-attr style='view.fullscreenStyle'}}>
+<div class="fullscreen-heights_text" style="{{view.fullscreenStyle}}">
   <h1 class="title">
-    <span class="from_the_heights" {{bind-attr style='view.fromHeightsStyle'}}>
-      From <em class="em">the</em> Heights<span class="ellipsis" {{bind-attr style='view.ellipsisStyle'}}>...</span>
+    <span class="from_the_heights" style="{{view.fromHeightsStyle}}">
+      From <em class="em">the</em> Heights<span class="ellipsis" style='{{view.ellipsisStyle}}'>...</span>
     </span>
 
-    <span class="to_new_heights" {{bind-attr style='view.toHeightsStyle'}}>
+    <span class="to_new_heights" style="{{view.toHeightsStyle}}">
       &nbsp;to new heights
     </span>
   </h1>
 </div>
 
 <div class="cinema">
-  <div class="cityscape" {{bind-attr style='view.cityscapeStyle'}} id="cityscape">
+  <div
+    class="cityscape"
+    style="{{view.cityscapeStyle}}"
+    id="cityscape"
+  >
   </div>
 
-  <div {{bind-attr class=':heights view.isPastCinema:hidden' style='view.heightsStyle'}}>
+  <div
+    class="heights {{view.isPastCinema:hidden}}"
+    style="{{view.heightsStyle}}"
+  >
   </div>
 
   <div class="clouds">
