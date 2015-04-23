@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 const { escapeExpression } = Ember.Handlebars.Utils;
 const { SafeString } = Ember.Handlebars;
+const $ = Ember.$;
+
+const navigationKeys = [37, 38, 39, 40];
 
 const escapeAsNumber = function(property) {
   return parseFloat(escapeExpression(property));
@@ -64,7 +67,7 @@ export default Ember.View.extend({
 
   fromHeightsStyle: function() {
     const inversePercentage = 1 - this.get('percentage');
-    const position = 120 * (1 - inversePercentage);
+    const position = 120 * inversePercentage;
 
     return new SafeString(`left:-${position}px;`);
   }.property('percentage'),
@@ -142,9 +145,9 @@ export default Ember.View.extend({
       , false);
     }
 
-    window.onmousewheel = document.onmousewheel
-                        = document.onkeydown
-                        = null;
+    window.onmousewheel = document.onmousewheel =
+                          document.onkeydown =
+                          null;
   },
 
   wheel: function(event) {
@@ -162,8 +165,8 @@ export default Ember.View.extend({
   },
 
   keydown: function(e) {
-    for (let i = keys.length; i--;) {
-      if (e.keyCode === keys[i]) {
+    for (let i = navigationKeys.length; i--;) {
+      if (e.keyCode === navigationKeys[i]) {
         this.preventDefault(e);
 
         return;
