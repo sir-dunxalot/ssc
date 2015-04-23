@@ -33,7 +33,7 @@ export default Ember.View.extend({
   }.property('offset', 'percentage'),
 
   heightsStyle: function() {
-    const inversePercentage = this.get('percentage');
+    const inversePercentage = 1 - this.get('percentage');
     const opacity = `opacity:${inversePercentage};`;
     const offset = escapeAsNumber(this.get('offset')) / 1.5;
     const top = `top:${offset}px;`;
