@@ -78,7 +78,7 @@ export default Ember.View.extend({
       return new SafeString(`top:${windowHeight}px;position:absolute;`);
     } else {
       const percentage = 1 - this.get('percentage');
-      const offset = percentage * 100;
+      const offset = percentage * 50; // 50px
 
       return `top:${offset}px;`;
     }
