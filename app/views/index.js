@@ -77,9 +77,12 @@ export default Ember.View.extend({
 
       return new SafeString(`top:${windowHeight}px;position:absolute;`);
     } else {
-      return null;
+      const percentage = 1 - this.get('percentage');
+      const offset = percentage * 100;
+
+      return `top:${offset}px;`;
     }
-  }.property('isPastCinema'),
+  }.property('isPastCinema', 'percentage'),
 
   /* Methods */
 
@@ -95,19 +98,24 @@ export default Ember.View.extend({
   }.on('didInsertElement'),
 
   scroll: function() {
+    const body = Ember.$('body');
     const duration = 1500;
     const offset = window.pageYOffset;
     const windowHeight = this.get('windowHeight');
 
     if (offset > windowHeight) {
+      scrolled = true;
       this.set('isPastCinema', true);
+      body.removeClass('fade_nav');
+    }
 
+    if (offset > windowHeight * 2) {
+      return;
+    } else if (offset > windowHeight) {
       return;
     }
 
     if (!scrolled) {
-      const body = Ember.$('body');
-
       scrolled = true;
 
       this.disableScroll();

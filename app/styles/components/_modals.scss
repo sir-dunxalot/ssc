@@ -1,0 +1,26 @@
+.fullscreen {
+  @extend %full_height-viewport;
+  @extend %full_width-viewport;
+  @extend %table;
+}
+
+@include mod(fullscreen) {
+  @extend .fullscreen;
+}
+
+.overlay {
+  @extend .fullscreen;
+  @extend %fixed;
+  @extend %top;
+  @extend %left;
+  z-index: 5;
+}
+
+.modal_wrapper {
+  @extend %cell;
+}
+
+.modal {
+  @extend %auto_margin;
+  @extend %align-center;
+}

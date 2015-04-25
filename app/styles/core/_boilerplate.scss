@@ -4,7 +4,7 @@
 }
 
 .or {
-  @include rem(margin, 0, $spacing / 2);
+  @include rem(margin, 0, $spacing / 4);
   @extend .sub;
 }
 
@@ -32,4 +32,15 @@ iframe {
 
 .bold {
   font-weight: bold;
+}
+
+.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

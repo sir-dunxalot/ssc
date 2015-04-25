@@ -44,19 +44,40 @@
 }
 
 .fullscreen-heights_text {
-  @extend %full_height-viewport;
-  @extend %full_width-viewport;
-  @extend %fixed;
-  @extend %top;
-  @extend %left;
+  @extend .overlay;
   color: $white;
-  z-index: 3;
+  z-index: 3 !important;
+
+  .title,
+  .description {
+    @include text-shadow(
+      0 0 10px $black,
+      0 0 20px $black,
+      0 0 30px $black,
+      0 0 40px $black,
+      0 0 50px $black,
+      0 0 60px $black
+    );
+  }
 
   .title {
     @include rem(font-size, 5);
-    @extend %relative;
-    @extend %align-center;
-    top: 40%;
+  }
+
+  .description {
+    @include rem(max-width, 70);
+    @include rem(font-size, 2.2);
+    @extend %auto_margin;
+    @extend %inline_block;
+  }
+
+  .buttons,
+  .description {
+    @include transition(opacity $slow);
+
+    .fade_nav & {
+      @extend .invisible;
+    }
   }
 }
 
@@ -69,7 +90,7 @@
 .from_the_heights {
   @extend %relative;
   color: #CFC083;
-  text-shadow: 0 0 10px $black;
+  // text-shadow: 0 0 10px $black;
 }
 
 .clouds {
@@ -80,7 +101,8 @@
 }
 
 .post_cinema_content {
-  background-color: $black;
+  @extend .section;
+  background-color: $white;
   @extend %relative;
   z-index: 2;
 }

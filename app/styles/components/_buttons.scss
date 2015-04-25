@@ -8,11 +8,17 @@ button {
   outline: none;
 }
 
+.buttons {
+  @include rem(margin, $spacing / 2, 0);
+}
+
 .button {
   @extend %nowrap;
   @extend %inline_block;
   @include rem(padding, $buttonVertPadding, $buttonHorizPadding);
 
+  color: $body;
+  font-weight: $latoReg;
   @include rem(border-radius, 0.3);
   border: 1px solid rgba($black, 0.15);
   background: none;
@@ -40,7 +46,7 @@ button {
     @include rem(padding, 2, 2.5);
   }
 
-  & ~ & {
+  & + & {
     @include rem(margin-left, $spacing / 2);
   }
 
@@ -58,6 +64,14 @@ button {
 
   &, &:hover {
     background-color: $gold-dark;
+  }
+}
+
+.button-primary-white {
+  background-color: $white;
+
+  &, &:hover {
+    background-color: $offwhite;
   }
 }
 

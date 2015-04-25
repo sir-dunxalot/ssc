@@ -1,0 +1,29 @@
+html,
+body {
+  @extend %no_margin;
+  @extend %no_padding;
+}
+
+.section {
+  @include rem(padding, $spacing);
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    @include rem(max-width, 60);
+  }
+}
+
+@include mod(section) {
+  @extend .section;
+}
+
+.section-gold {
+  background-color: $gold;
+}

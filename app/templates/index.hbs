@@ -1,13 +1,19 @@
 <div class="fullscreen-heights_text" style={{view.fullscreenStyle}}>
-  <h1 class="title">
-    <span class="from_the_heights" style={{view.fromHeightsStyle}}>
-      From <em class="em">the</em> Heights<span class="ellipsis" style={{view.ellipsisStyle}}>...</span>
-    </span>
+  <div class="modal_wrapper">
+    <div class="modal">
+      <h1 class="title" style={{view.titleStyle}}>
+        <span class="from_the_heights" style={{view.fromHeightsStyle}}>
+          From <em class="em">the</em> Heights<span class="ellipsis" style={{view.ellipsisStyle}}>...</span>
+        </span>
 
-    <span class="to_new_heights" style={{view.toHeightsStyle}}>
-      &nbsp;to new heights
-    </span>
-  </h1>
+        <span class="to_new_heights" style={{view.toHeightsStyle}}>
+          &nbsp;to new heights
+        </span>
+      </h1>
+
+      <p class="description">The Soaring Startup Circle is a summer accelerator program created by Boston College alumni that will take your business to the next level</p>
+    </div>
+  </div>
 </div>
 
 <div class="cinema">
@@ -28,6 +34,38 @@
   </div>
 </div>
 
-<div class="post_cinema_content">
-  <h1 style="color:white;">About the SSC</h1>
+<div class="section">
+  <div class="buttons">
+    <div class="buttons">
+      {{#link-to 'apply' class='button-primary'}}
+        Apply now
+      {{/link-to}}
+
+      <span class="or">or</span>
+
+      {{#link-to 'about' class='button-secondary'}}
+        Learn more
+      {{/link-to}}
+    </div>
+  </div>
 </div>
+
+<!-- <div class="post_cinema_content" id="post_cinema_content">
+  <h1 class="hidden">About the SSC</h1>
+
+  <p>The Soaring Startup Circle is a summer accelerator program created by Boston College alumni that will take your business to the next level.</p>
+
+  <ul>
+    <li>Ten week intensive program</li>
+    <li>Office space in downtown Boston</li>
+    <li>Monetary investment from the BC community</li>
+    <li>Weekly mentoring with Boston's business and tech leaders</li>
+  </ul>
+
+
+
+</div>
+
+<div class="section-gold">
+  <p>We are BC alums who love the startup community</p>
+</div> -->

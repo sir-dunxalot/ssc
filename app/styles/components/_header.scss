@@ -4,6 +4,13 @@
   z-index: 4;
   @include transition(opacity 1s);
 
+  background-color: transparent;
+  // background-image: -ms-linear-gradient(to bottom, $black, transparent); // IE11
+  // @include background-image(linear-gradient(to bottom, $black, transparent));
+
+  background-image: -webkit-linear-gradient(to bottom, $black, transparent);
+  background-image: linear-gradient(to bottom, $black, transparent);
+
   .fade_nav &:not(:hover) {
     @include opacity(0.25);
   }
