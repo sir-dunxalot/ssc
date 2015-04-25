@@ -6,103 +6,13 @@
 @import "core/boilerplate";
 @import "core/placeholders";
 
+@import "components/cinema";
+@import "components/header";
+@import "components/typography";
+
 html, body, .application_view, .index_view {
   margin: 0;
   padding: 0;
   @extend %full_width;
   @extend %full_height;
-}
-
-body {
-  font-family: $lato;
-  background-color: $black;
-}
-
-h1 {
-  font-weight: 300;
-}
-
-.em {
-  font-family: $didot;
-}
-
-.heights {
-  background-color: #000;
-  background-image: url('images/heights.png');
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.cityscape {
-  background-color: #000;
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 30%, rgba(0,0,0,1)), url('images/cityscape.jpg');
-  background-position: top center;
-  background-size: cover, 100% 100%;
-  background-repeat: no-repeat;
-}
-
-.cinema,
-.heights,
-.cityscape,
-.clouds {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-}
-
-.cinema,
-.cityscape {
-  top: -100vh;
-}
-
-.cinema {
-  margin-bottom: 100vh;
-}
-
-.fullscreen-heights_text {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  color: #fff;
-  z-index: 3;
-
-  .title {
-    // @include rem(font-size, 5);
-    font-size: 50px;
-    position: relative;
-    text-align: center;
-    top: 40%;
-  }
-}
-
-.ellipsis {
-  @include inline-block;
-  overflow: hidden;
-  text-align: left;
-}
-
-.from_the_heights {
-  position: relative;
-  color: #CFC083;
-  text-shadow: 0 0 10px $black;
-  // margin-right: 50px;
-}
-
-.clouds {
-  background-color: transparent;
-  background-image: url('images/clouds.png');
-  background-position: center center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  top: 50vh;
-  z-index: 2;
-}
-
-.post_cinema_content {
-  background-color: $black;
-  position: relative;
-  z-index: 2;
 }

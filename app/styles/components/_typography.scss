@@ -12,8 +12,12 @@ html {
 
 body {
   @include rem(font-size, $bodyFontSize);
-  font-family: $sourceSansPro;
-  font-weight: $sourceSansReg;
+  // font-family: $sourceSansPro;
+  // font-weight: $sourceSansReg;
+
+  font-family: $lato;
+  font-weight: $latoReg;
+
 
   /* Crome & Safari */
   text-rendering: optimizeLegibility;
@@ -22,4 +26,16 @@ body {
 
   /* Firefox on Mac */
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-weight: $latoReg;
+}
+
+.em {
+  font-family: $didot;
+}
+
+a {
+  text-decoration: none;
 }

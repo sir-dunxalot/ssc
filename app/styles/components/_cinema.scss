@@ -1,0 +1,86 @@
+.cinema {
+  margin-bottom: 100vh;
+}
+
+.cinema,
+.heights,
+.cityscape,
+.clouds {
+  @extend %full_height-viewport;
+  @extend %full_width-viewport;
+  @extend %relative;
+}
+
+.cityscape,
+.clouds,
+.heights {
+  background-repeat: no-repeat;
+}
+
+.cityscape,
+.heights {
+  background-color: $black;
+}
+
+.clouds,
+.heights {
+  background-position: center center;
+}
+
+.heights {
+  background-image: url('images/heights.png');
+  background-size: contain;
+}
+
+.cityscape {
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 30%, rgba(0,0,0,1)), url('images/cityscape.jpg');
+  background-position: top center;
+  background-size: cover, 100% 100%;
+}
+
+.cinema,
+.cityscape {
+  top: -100vh;
+}
+
+.fullscreen-heights_text {
+  @extend %full_height-viewport;
+  @extend %full_width-viewport;
+  @extend %fixed;
+  @extend %top;
+  @extend %left;
+  color: $white;
+  z-index: 3;
+
+  .title {
+    @include rem(font-size, 5);
+    @extend %relative;
+    @extend %align-center;
+    top: 40%;
+  }
+}
+
+.ellipsis {
+  @include inline-block;
+  @extend %overflow-hidden;
+  @extend %align-left;
+}
+
+.from_the_heights {
+  @extend %relative;
+  color: #CFC083;
+  text-shadow: 0 0 10px $black;
+}
+
+.clouds {
+  background-color: transparent;
+  background-image: url('images/clouds.png');
+  background-size: 100% 100%;
+  top: 50vh;
+}
+
+.post_cinema_content {
+  background-color: $black;
+  @extend %relative;
+  z-index: 2;
+}

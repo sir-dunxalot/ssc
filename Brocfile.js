@@ -21,4 +21,7 @@ app.import(bowerDir + 'normalize.css/normalize.css', {
 
 app.import('vendor/jquery.easing.js');
 
+app.import(bowerDir + 'responsive-nav/responsive-nav.js');
+app.import(bowerDir + 'responsive-nav/responsive-nav.css');
+
 module.exports = app.toTree();

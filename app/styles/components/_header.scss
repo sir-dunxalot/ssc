@@ -1,0 +1,8 @@
+.header {
+  @extend %fixed;
+  z-index: 3;
+}
+
+.logo {
+  @include rem(height, 7);
+}

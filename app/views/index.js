@@ -13,10 +13,9 @@ const escapeAsNumber = function(property) {
 let scrolled = false;
 
 export default Ember.View.extend({
-  classNames: ['index_view'],
-  unescapedPositionPercentage: 0,
   isPastCinema: false,
   offset: 0,
+  unescapedPositionPercentage: 0,
   windowHeight: 0,
 
   cityscapeStyle: function() {
