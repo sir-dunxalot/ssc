@@ -1,0 +1,100 @@
+button {
+  font-family: inherit;
+  font-weight: inherit;
+  text-rendering: inherit;
+  -webkit-font-smoothing: inherit;
+  font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  outline: none;
+}
+
+.button {
+  @extend %nowrap;
+  @extend %inline_block;
+  @include rem(padding, $buttonVertPadding, $buttonHorizPadding);
+
+  @include rem(border-radius, 0.3);
+  border: 1px solid rgba($black, 0.15);
+  background: none;
+  @extend %border_box;
+
+  @include box-shadow(0 4px 0 -2px rgba($black, 0.1));
+
+  cursor: pointer;
+  @extend .alt_text;
+
+  &:hover {
+    @include transform(scale(1.02));
+  }
+
+  &.disabled:hover {
+    @include transform(none);
+  }
+
+  &:active {
+    @include transform(scale(1.02) translateY(1px));
+    @include box-shadow(none);
+  }
+
+  &.large {
+    @include rem(padding, 2, 2.5);
+  }
+
+  & ~ & {
+    @include rem(margin-left, $spacing / 2);
+  }
+
+  .text {
+    @extend %inline_block;
+  }
+}
+
+@include mod(button) {
+  @extend .button;
+}
+
+.button-primary {
+  background-color: $gold;
+
+  &, &:hover {
+    background-color: $gold-dark;
+  }
+}
+
+.button-secondary {
+  color: $gold-dark;
+  border: 1px solid $gold;
+  @include transition(border-color $fast);
+
+  &:hover {
+    border-color: $gold-dark;
+  }
+}
+
+@include mod(button-secondary) {
+  @extend .button-secondary;
+}
+
+.button-secondary-white {
+  color: $white;
+  border: 1px solid $white;
+
+  &:hover {
+    border-color: $white;
+  }
+}
+
+.button-transparent {
+  background: none;
+  border-color: transparent;
+  box-shadow: none;
+
+  &:active {
+    @include transform(none);
+  }
+}
+
+.button-unstyled {
+  @extend .button-transparent;
+  padding: 0; // Don't use extend
+}

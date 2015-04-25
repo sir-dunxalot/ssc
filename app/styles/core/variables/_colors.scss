@@ -1,36 +1,21 @@
 /* General purpose colors */
 
-$white: #ffffff;
-$offwhite: #eeeeee;
-$black: #000000;
+$white: #fff;
+$offwhite: #eee;
+$black: #000;
+
+$body: #333;
 
 $darkGray: #86898d;
 $lightGray: #a1aab7;
-$subtleGray: #cccccc;
+$subtleGray: #ccc;
+$faintGray: #bbb;
 
-$darkBlue: #1f242c;
-$lightBlue: #262c35;
-$subtleBlue: mix($white, $darkBlue, 5%);
+/* Theme colors */
 
-$body: $darkBlue;
-$altBody: mix($white, $darkBlue);
-$pageBackground: $offwhite;
-
-/* Pastel colors */
-
-$red: #b6707d;
-$blue: #7aafd1;
-$yellow: #cfb669;
-$green: #A2CAAB; // #85AFAB ?
-$orange: #ECA36E;
-$lightYellow: #fadc68;
-
-/* Primary CTA colors */
-
-$gold: #a26760;
-$plum: #985e65;
-$violet: #775278;
-$lavender: #566fab;
+$gold: #cebf82;
+$gold-dark: #a09463;
+$darkBlue: #1f344f;
 
 /* Third-party colors */
 
@@ -39,7 +24,3 @@ $facebook: #3d5ba0;
 $instagram: #e95b6a;
 
 $socials: facebook $facebook, twitter $twitter;
-
-/* Popover colors */
-
-$popoverBorderColor: #bbb;

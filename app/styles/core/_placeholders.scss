@@ -168,3 +168,11 @@ overwrite them in media queries */
 %overflow-scroll {
   overflow: scroll;
 }
+
+%uppercase {
+  text-transform: uppercase;
+}
+
+%fade {
+  @include transition(opacity $slow);
+}

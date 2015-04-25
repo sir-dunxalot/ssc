@@ -1,8 +1,68 @@
 .header {
+  @extend %full_width;
   @extend %fixed;
-  z-index: 3;
+  z-index: 4;
+  @include transition(opacity 1s);
+
+  .fade_nav &:not(:hover) {
+    @include opacity(0.25);
+  }
+
+  @extend .alt_text;
+  text-shadow: 0 0 5px $black;
+
+  @include mod(link-to) {
+    color: $white;
+  }
 }
 
 .logo {
-  @include rem(height, 7);
+  @include rem(height, 6);
+  @include rem(padding-right, $headerSpacing);
+
+  &, & + .text {
+    @extend %inline_block;
+  }
+}
+
+.nav_list {
+  @extend %list-inline;
+  @extend %align-right;
+
+  @include mod(link-to) {
+    @extend %inline_block;
+    @include rem(padding, $headerSpacing);
+  }
+
+  li:first-child {
+    float: left;
+    @include rem(margin-top, $headerSpacing / 2);
+  }
+
+  @include medium {
+    li {
+      width: auto;
+      @include rem(margin, $headerSpacing);
+      margin-left: 0;
+    }
+  }
+
+  .link-to-apply {
+    @extend .button;
+    @extend .button-secondary;
+    @extend .button-secondary-white;
+    @include rem(padding, $buttonVertPadding, $buttonHorizPadding);
+  }
+}
+
+@include medium {
+  .js .nav-collapse {
+    position: relative;
+  }
+  .js .nav-collapse.closed {
+    max-height: none;
+  }
+  .nav-toggle {
+    display: none;
+  }
 }

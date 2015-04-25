@@ -106,15 +106,21 @@ export default Ember.View.extend({
     }
 
     if (!scrolled) {
+      const body = Ember.$('body');
+
+      scrolled = true;
+
       this.disableScroll();
 
-      $('body').animate({
+      body.animate({
         scrollTop: windowHeight
       }, duration, 'easeInOutQuint');
 
       Ember.run.later(this, this.enableScroll, duration);
 
-      scrolled = true;
+      Ember.run.later(this, function() {
+        body.removeClass('fade_nav');
+      }, duration + 500);
     }
 
     this.setProperties({

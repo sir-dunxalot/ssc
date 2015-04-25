@@ -6,8 +6,11 @@
 @import "core/boilerplate";
 @import "core/placeholders";
 
+@import "components/buttons";
 @import "components/cinema";
 @import "components/header";
+@import "components/lists";
+@import "components/page";
 @import "components/typography";
 
 html, body, .application_view, .index_view {

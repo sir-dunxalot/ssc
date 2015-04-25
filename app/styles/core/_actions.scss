@@ -3,12 +3,11 @@ Allow user to easily see when they tab through the page
 */
 
 ::-moz-selection {
-  background: mix($pageBackground, $blue, 90%);
+  // background: mix($pageBackground, $blue, 90%);
   color: $body;
 }
 
 ::selection {
-  background: mix($pageBackground, $blue, 90%);
+  // background: mix($pageBackground, $blue, 90%);
   color: $body;
 }
-

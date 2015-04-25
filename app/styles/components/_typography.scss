@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-  font-weight: $latoReg;
+  font-weight: $latoThin;
 }
 
 .em {
@@ -38,4 +38,10 @@ h1 {
 
 a {
   text-decoration: none;
+}
+
+.alt_text {
+  @extend %uppercase;
+  @include rem(font-size, 1.4);
+  @include rem(letter-spacing, 0.1);
 }
