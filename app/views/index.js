@@ -107,11 +107,11 @@ export default Ember.View.extend({
       scrolled = true;
       this.set('isPastCinema', true);
       body.removeClass('fade_nav');
+
+      return;
     }
 
-    if (offset > windowHeight * 2) {
-      return;
-    } else if (offset > windowHeight) {
+    if (offset === 0) {
       return;
     }
 
@@ -136,7 +136,7 @@ export default Ember.View.extend({
       isPastCinema: false,
       offset: offset
     });
-  },
+  }.on('didInsertElement'),
 
   /* Scroll handling */
 

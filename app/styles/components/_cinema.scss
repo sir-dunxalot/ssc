@@ -92,6 +92,12 @@
 .from_the_heights {
   @extend %relative;
   color: #CFC083;
+
+  /* Disable text movement for smaller devices */
+
+  @media (max-width: #{$large}) {
+    left: 0 !important;
+  }
 }
 
 .clouds {

@@ -1,11 +1,15 @@
 html {
-  font-size: $baseFontSize * 0.8;
+  font-size: $baseFontSize * 0.7;
 
   @include small {
-    font-size: $baseFontSize * 0.9;
+    font-size: $baseFontSize * 0.8;
   }
 
   @include medium {
+    font-size: $baseFontSize * 0.9;
+  }
+
+  @include large {
     font-size: $baseFontSize;
   }
 }
@@ -42,6 +46,10 @@ a {
 
 .alt_text {
   @extend %uppercase;
-  @include rem(font-size, 1.4);
+  @include rem(font-size, $bodyFontSize);
   @include rem(letter-spacing, 0.1);
+
+  @include medium {
+    @include rem(font-size, 1.4);
+  }
 }

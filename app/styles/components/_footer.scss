@@ -1,0 +1,4 @@
+.footer {
+  @extend %align-center;
+  @include rem(padding, $spacing);
+}

@@ -6,6 +6,15 @@
     font-weight: $latoThin;
     @extend %align-center;
 
+    .about,
+    .members,
+    .help {
+      @include box-shadow(0 2px 4px $black);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     .about {
       background-image: url('/assets/images/group.jpg');
     }
@@ -22,5 +31,9 @@
       background-color: rgba($black, 0.7);
       color: $white;
     }
+  }
+
+  .footer {
+    padding-top: 0;
   }
 }

@@ -4,7 +4,6 @@
 
 .third {
   @include span(4);
-  background-color: red;
 
   &:nth-child(3n) {
     @include span(last 4);

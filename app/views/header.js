@@ -8,9 +8,10 @@ export default Ember.View.extend({
 
   renderResponsiveNav: function() {
     const nav = responsiveNav('.nav-collapse', {
-      label: '<button class="nav_toggle_button"><span class="hidden">Nav</span></button>',
+      label: '<button class="button-unstyled"><span class="">Nav</span></button>',
       closeOnNavClick: true,
       navClass: 'nav-collapse',
+      openPos: 'absolute'
     });
   }.on('didInsertElement'),
 });

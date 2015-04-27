@@ -2,30 +2,24 @@
   @extend %full_width;
   @extend %fixed;
   z-index: 4;
-  @include transition(opacity 1s);
-
-  background-color: transparent;
   @extend .alt_text;
+  background-color: transparent;
 
   .index & {
     background-image: -webkit-linear-gradient(to bottom, $black 30%, transparent);
     background-image: linear-gradient(to bottom, $black 30%, transparent);
+  }
 
-    .fade_nav &:not(:hover) {
+  .index & {
+    .fade_nav &:not(:hover) .nav_list {
       @include opacity(0.25);
     }
 
     @include mod(link-to) {
-      .description {
-        @include text-shadow(
-          0 0 10px $black,
-          0 0 20px $black,
-          0 0 30px $black,
-          0 0 40px red, // TODO
-          0 0 50px red,
-          0 0 60px red
-        );
-      }
+      @include text-shadow(
+        0 0 10px $black,
+        0 0 20px $black
+      );
     }
   }
 
@@ -36,6 +30,23 @@
       color: $offwhite;
     }
   }
+
+  .link-to-index {
+    @extend %inline_block;
+    @include rem(padding, $headerSpacing);
+  }
+}
+
+.nav {
+  @include rem(top, $spacing);
+
+  @include large {
+    top: 0;
+  }
+}
+
+.nav_list {
+  @include transition(opacity 1s);
 }
 
 .logo {
@@ -56,11 +67,6 @@
     @include rem(padding, $headerSpacing);
   }
 
-  li:first-child {
-    float: left;
-    @include rem(margin-top, $headerSpacing / 2);
-  }
-
   @include medium {
     li {
       width: auto;
@@ -74,7 +80,19 @@
   }
 }
 
-@include medium {
+@media screen and (min-width: 40em) {
+  .js .nav-collapse {
+    position: absolute;
+  }
+  .js .nav-collapse.closed {
+    max-height: 0;
+  }
+  .nav-toggle {
+    @include inline-block;
+  }
+}
+
+@include large {
   .js .nav-collapse {
     position: relative;
   }
@@ -83,5 +101,16 @@
   }
   .nav-toggle {
     display: none;
+  }
+}
+
+.nav-toggle {
+  @extend %absolute;
+  @extend %top;
+  @extend %right;
+  @include rem(padding, $spacing / 2);
+
+  .button-unstyled {
+    color: $white;
   }
 }

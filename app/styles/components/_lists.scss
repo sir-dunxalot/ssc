@@ -1,9 +1,6 @@
 %list-unstyled {
   list-style: none;
-
-  li {
-    @extend %no_padding;
-  }
+  @extend %no_padding;
 }
 
 %list-inline {
