@@ -34,38 +34,34 @@
   </div>
 </div>
 
-<div class="section">
-  <div class="buttons">
-    <div class="buttons">
-      {{#link-to 'apply' class='button-primary'}}
-        Apply now
+<section class="section">
+  <h2 class="hidden">Learn more</h2>
+
+  <ul class="box_list">
+    <li class="about">
+      {{#link-to 'about'}}
+        <span class="bold">What</span> is the SSC?
       {{/link-to}}
+    </li>
 
-      <span class="or">or</span>
+    <li class="members">
+      {{#link-to 'members'}}
+        Meet the <span class="bold">members</span>
+      {{/link-to}}
+    </li>
 
-      {{#link-to 'about' class='button-secondary'}}
+    <li class="help">
+      {{#link-to 'help'}}
+        <span class="bold">Help</span> the teams
+      {{/link-to}}
+    </li>
+  </ul>
+
+  <div class="buttons" style={{view.toHeightsStyle}}>
+    <div class="buttons">
+      {{#link-to 'about' class='button-primary'}}
         Learn more
       {{/link-to}}
     </div>
   </div>
-</div>
-
-<!-- <div class="post_cinema_content" id="post_cinema_content">
-  <h1 class="hidden">About the SSC</h1>
-
-  <p>The Soaring Startup Circle is a summer accelerator program created by Boston College alumni that will take your business to the next level.</p>
-
-  <ul>
-    <li>Ten week intensive program</li>
-    <li>Office space in downtown Boston</li>
-    <li>Monetary investment from the BC community</li>
-    <li>Weekly mentoring with Boston's business and tech leaders</li>
-  </ul>
-
-
-
-</div>
-
-<div class="section-gold">
-  <p>We are BC alums who love the startup community</p>
-</div> -->
+</section>

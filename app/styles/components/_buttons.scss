@@ -60,6 +60,7 @@ button {
 }
 
 .button-primary {
+  color: $black;
   background-color: $gold;
 
   &, &:hover {

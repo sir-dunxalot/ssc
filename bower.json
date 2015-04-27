@@ -17,6 +17,7 @@
     "compass-mixins": "~1.0.2"
   },
   "devDependencies": {
-    "responsive-nav": "~1.0.39"
+    "responsive-nav": "~1.0.39",
+    "susy": "~2.2.2"
   }
 }

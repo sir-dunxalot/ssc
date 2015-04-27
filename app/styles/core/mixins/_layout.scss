@@ -41,55 +41,6 @@ http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
   #{$property}: $remValues;
 }
 
-/*
-Basic grid system for transparent grid items
-*/
-
-@mixin span_using_borders($percent) {
-  $gutter: $spacing;
-
-  $numOfColumns: 100 / strip_unit($percent);
-  $numOfColumnsRounded: round($numOfColumns);
-  $numOfGutters: $numOfColumnsRounded - 1;
-
-  $edgeMultiplier: 4/3; // Multiplier needed to bring partial gutters to two outer grid items up to one whole gutter width
-  $midMultiplier: 4/2; // Multiplier needed to bring partial gutters of pairs of inner grid items up to one whole gutter width
-
-  $edgeOuterGutter: $gutter * 0.5 * $edgeMultiplier; // Inner partial gutter of two outer-most grid items
-  $edgeInnerGutter: $gutter * 0.25 * $edgeMultiplier; // Outer, partial gutters of second-from-the-edge grid items
-  $midGutter: $gutter * 0.25 * $midMultiplier; // All other partial gutters
-
-  @include rem(border-width, 0, $midGutter); // Set default gutter width
-  width: percentage(1 / $numOfColumns);
-
-  // First on each line
-  &:nth-of-type(#{$numOfColumnsRounded}n-#{$numOfGutters}) {
-    margin-left: 0; // Counter effect of .terrace
-    @include rem(border-right-width, $edgeOuterGutter);
-    border-left-width: 0;
-
-    // Second on each line
-    & + * {
-      @include rem(border-left-width, $edgeInnerGutter);
-    }
-  }
-
-  // Penultimate on each line
-  &:nth-of-type(#{$numOfColumnsRounded}n-1) {
-    @include rem(border-right-width, $edgeInnerGutter);
-  }
-
-  // Last on each line
-  &:nth-of-type(#{$numOfColumnsRounded}n) {
-    // If first is same as last (i.e. block with 100% width), no border
-    @if ($numOfColumnsRounded > 1) {
-      @include rem(border-left-width, $edgeOuterGutter);
-    }
-
-    border-right-width: 0;
-  }
-}
-
 /* Media Queries */
 
 @mixin small {

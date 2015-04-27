@@ -1,3 +1,11 @@
+%list-unstyled {
+  list-style: none;
+
+  li {
+    @extend %no_padding;
+  }
+}
+
 %list-inline {
   li {
     @extend %inline_block;

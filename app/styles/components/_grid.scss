@@ -1,0 +1,34 @@
+.grid {
+  @include container;
+}
+
+.third {
+  @include span(4);
+  background-color: red;
+
+  &:nth-child(3n) {
+    @include span(last 4);
+  }
+}
+
+.box_list {
+  @extend .grid;
+  @extend %list-unstyled;
+
+  li {
+    @extend .third;
+    @include rem(height, 24);
+  }
+
+  @include mod(link-to) {
+    @extend %full_height;
+    @extend %full_width;
+    @extend %inline_block;
+    @include rem(line-height, 24);
+    @include transition(line-height $fast);
+
+    &:hover {
+      @include rem(line-height, 22);
+    }
+  }
+}

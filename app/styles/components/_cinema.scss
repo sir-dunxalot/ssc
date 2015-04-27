@@ -1,5 +1,11 @@
 .cinema {
   margin-bottom: 100vh;
+
+  & + .section {
+    @extend %relative;
+    padding-top: 0;
+    z-index: 2;
+  }
 }
 
 .cinema,
@@ -73,11 +79,7 @@
 
   .buttons,
   .description {
-    @include transition(opacity $slow);
-
-    .fade_nav & {
-      @extend .invisible;
-    }
+    @include transition(opacity $slow); // Delays fade
   }
 }
 
@@ -90,7 +92,6 @@
 .from_the_heights {
   @extend %relative;
   color: #CFC083;
-  // text-shadow: 0 0 10px $black;
 }
 
 .clouds {
@@ -98,11 +99,4 @@
   background-image: url('images/clouds.png');
   background-size: 100% 100%;
   top: 50vh;
-}
-
-.post_cinema_content {
-  @extend .section;
-  background-color: $white;
-  @extend %relative;
-  z-index: 2;
 }

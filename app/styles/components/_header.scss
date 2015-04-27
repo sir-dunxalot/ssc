@@ -5,21 +5,36 @@
   @include transition(opacity 1s);
 
   background-color: transparent;
-  // background-image: -ms-linear-gradient(to bottom, $black, transparent); // IE11
-  // @include background-image(linear-gradient(to bottom, $black, transparent));
-
-  background-image: -webkit-linear-gradient(to bottom, $black, transparent);
-  background-image: linear-gradient(to bottom, $black, transparent);
-
-  .fade_nav &:not(:hover) {
-    @include opacity(0.25);
-  }
-
   @extend .alt_text;
-  text-shadow: 0 0 5px $black;
+
+  .index & {
+    background-image: -webkit-linear-gradient(to bottom, $black 30%, transparent);
+    background-image: linear-gradient(to bottom, $black 30%, transparent);
+
+    .fade_nav &:not(:hover) {
+      @include opacity(0.25);
+    }
+
+    @include mod(link-to) {
+      .description {
+        @include text-shadow(
+          0 0 10px $black,
+          0 0 20px $black,
+          0 0 30px $black,
+          0 0 40px red, // TODO
+          0 0 50px red,
+          0 0 60px red
+        );
+      }
+    }
+  }
 
   @include mod(link-to) {
     color: $white;
+
+    &:hover {
+      color: $offwhite;
+    }
   }
 }
 
@@ -55,9 +70,6 @@
   }
 
   .link-to-apply {
-    @extend .button;
-    @extend .button-secondary;
-    @extend .button-secondary-white;
     @include rem(padding, $buttonVertPadding, $buttonHorizPadding);
   }
 }

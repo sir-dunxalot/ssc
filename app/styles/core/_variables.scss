@@ -2,3 +2,9 @@
 @import "variables/layout";
 @import "variables/transitions";
 @import "variables/typography";
+
+$susy: (
+  columns: 12,
+  gutters: 2,
+  global-box-sizing: border-box
+);

@@ -6,7 +6,8 @@ var app = new EmberApp({
 
   sassOptions: {
     includePaths: [
-      'bower_components/compass-mixins/lib'
+      'bower_components/compass-mixins/lib',
+      'bower_components/susy/sass'
     ]
   },
 
